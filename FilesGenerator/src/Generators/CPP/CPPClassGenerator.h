@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Generators/BaseGenerator.h"
-#include "Interfaces/IProperty.h"
 
 namespace generation
 {
@@ -10,14 +9,12 @@ namespace generation
 		class CPPClassGenerator : public BaseGenerator
 		{
 		private:
-			std::vector<std::unique_ptr<interfaces::IProperty>> properties;
+			std::vector<interfaces::IProperty*> getProperties() const override;
 
 		public:
-			CPPClassGenerator(const std::filesystem::path& pathToSettings);
+			CPPClassGenerator(const json::JSONParser& settings);
 
-			virtual void generate() const final override;
-
-			virtual ~CPPClassGenerator() = default;
+			~CPPClassGenerator() = default;
 		};
 	}
 }

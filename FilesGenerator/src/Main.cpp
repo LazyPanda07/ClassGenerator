@@ -1,10 +1,12 @@
-#include <iostream>
+#include "headers.h"
 
 #include "Generators/CPP/CPPClassGenerator.h"
 
 #pragma comment (lib, "JSON.lib")
 
 using namespace std;
+
+unique_ptr<generation::BaseGenerator> chooseGenerator(const json::JSONParser& settings);
 
 int main(int argc, char** argv)
 {
@@ -23,9 +25,9 @@ int main(int argc, char** argv)
 
 	try
 	{
-		generation::cpp::CPPClassGenerator generator(pathToSettings);
-
-		generator.generate();
+		json::JSONParser settings = ifstream(pathToSettings);
+		
+		chooseGenerator(settings)->generate();
 	}
 	catch (const exception& e)
 	{
@@ -33,4 +35,25 @@ int main(int argc, char** argv)
 	}
 
 	return 0;
+}
+
+unique_ptr<generation::BaseGenerator> chooseGenerator(const json::JSONParser& settings)
+{
+	const string& generationMode = settings.getString("generationMode");
+	unique_ptr<generation::BaseGenerator> result;
+
+	if (generationMode == "CPP")
+	{
+		result = make_unique<generation::cpp::CPPClassGenerator>(settings);
+	}
+	else if (generationMode == "Custom")
+	{
+
+	}
+	else
+	{
+		throw runtime_error("Wrong generationMode setting");
+	}
+
+	return result;
 }

@@ -1,18 +1,22 @@
 #pragma once
 
 #include "headers.h"
+#include "Interfaces/IProperty.h"
 
 namespace generation
 {
 	class BaseGenerator
 	{
 	protected:
-		json::JSONParser settings;
+		const json::JSONParser& settings;
+		
+	protected:
+		virtual std::vector<interfaces::IProperty*> getProperties() const = 0;
 
 	public:
-		BaseGenerator(const std::filesystem::path& pathToSettings);
+		BaseGenerator(const json::JSONParser& settings);
 
-		virtual void generate() const = 0;
+		virtual void generate() const final;
 
 		virtual ~BaseGenerator() = default;
 	};
