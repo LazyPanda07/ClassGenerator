@@ -8,7 +8,7 @@ namespace generation
 	{
 		string CPPFileProperty::getPropertyName() const
 		{
-			return "cpp";
+			return "cpp"s;
 		}
 	}
 }

@@ -8,7 +8,7 @@ namespace generation
 	{
 		string CustomFileProperty::getPropertyName() const
 		{
-			return ""s;
+			return "custom"s;
 		}
 	}
 }

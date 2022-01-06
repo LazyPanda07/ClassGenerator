@@ -8,7 +8,7 @@ namespace generation
 	{
 		string HeaderFileProperty::getPropertyName() const
 		{
-			return "header";
+			return "header"s;
 		}
 	}
 };
