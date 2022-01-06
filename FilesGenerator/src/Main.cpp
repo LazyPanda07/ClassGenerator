@@ -1,6 +1,7 @@
 #include "headers.h"
 
 #include "Generators/CPP/CPPClassGenerator.h"
+#include "Generators/Custom/CustomFileGenerator.h"
 
 #pragma comment (lib, "JSON.lib")
 
@@ -48,11 +49,11 @@ unique_ptr<generation::BaseGenerator> chooseGenerator(const json::JSONParser& se
 	}
 	else if (generationMode == "Custom")
 	{
-
+		result = make_unique<generation::custom::CustomFileGenerator>(settings);
 	}
 	else
 	{
-		throw runtime_error("Wrong generationMode setting");
+		throw runtime_error("Wrong generationMode setting: "s + generationMode);
 	}
 
 	return result;

@@ -42,6 +42,12 @@
     <ClCompile Include="src\Generators\CPP\CPPClassGenerator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\Generators\Custom\CustomFileGenerator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Generators\Custom\Properties\CustomFileProperty.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Generators\CPP\Properties\HeaderFileProperty.h">
@@ -66,6 +72,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\Generators\CPP\CPPClassGenerator.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Generators\Custom\CustomFileGenerator.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Generators\Custom\Properties\CustomFileProperty.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
