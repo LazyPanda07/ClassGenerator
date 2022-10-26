@@ -1,3 +1,8 @@
+/**
+* Run through console or just .exe
+* argv[0] - System reserved for path to executable
+* argv[1] - Path to settings
+*/
 #include "headers.h"
 
 #include "Generators/CPP/CPPClassGenerator.h"
